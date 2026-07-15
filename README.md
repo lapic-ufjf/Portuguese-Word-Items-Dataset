@@ -22,15 +22,19 @@ items.
     `-- user_prompt.txt
 ```
 
+## Quantitative evaluation data
+
+The quantitative evaluation measured the recovery of distractors from 140 unique answer keys associated with reference items. These items are not included in this repository because they are restricted assessment materials.
+
 ## Qualitative evaluation data
 
 The qualitative evaluation comprises 35 answer keys selected by literacy
-assessment specialists. For every answer key, the LLM-based and rule-based
-approaches each produced four ranked lists of 20 candidates. The public table
+assessment specialists. For every answer key, GPT-5.2 and the rule-based
+approach each produced four ranked lists of 20 candidates. The public table
 therefore contains 5,600 candidate evaluations:
 
 ```text
-35 answer keys x 2 methods x 4 structural groups x 20 candidates = 5,600
+35 answer keys x 2 approaches x 4 structural groups x 20 candidates = 5,600
 ```
 
 Each candidate was blindly assessed according to its plausibility, pedagogical
@@ -54,6 +58,7 @@ with each answer key.
 
 See [data/README.md](data/README.md) for a description of the CSV files and their columns.
 
+
 ## Prompt and model settings
 
 The exact system and user messages used for LLM-based generation are available
@@ -68,7 +73,11 @@ The following models and generation settings were used:
 | Gemini 2.5 Pro | Google Generative AI (`google_genai`) | `gemini-2.5-pro` | 0 |
 | Sabiá-4 | Maritaca AI (`ChatMaritalk`) | `sabia-4` | 0.001 |
 
-> **Note:** Sabiá-4 was run with a temperature of `0.001` because the
+> **Note:** The quantitative evaluation included GPT-5.2, Gemini 2.5 Pro, and
+> Sabiá-4. As GPT-5.2 achieved the highest performance among the evaluated
+> LLMs, it was selected for the subsequent qualitative evaluation.
+>
+>Sabiá-4 was run with a temperature of `0.001` because the
 > `ChatMaritalk` version used in the experiments required a value greater than
 > zero. This value was used as a near-zero setting.
 
